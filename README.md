@@ -1,2 +1,2 @@
 # word-pusher
-A simple web application help you memorize German words more easiler
+A simple web application let you memorize German words easier.

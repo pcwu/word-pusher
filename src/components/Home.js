@@ -3,7 +3,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import './composing.css';
 
 const bgStyle = {
-  background: '#304FFE',
+  background: "url('./images/1.jpg')",
+  backgroundSize: 'cover',
 };
 
 const Home = () => (

@@ -7,7 +7,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import * as actions from './actions';
 import Home from './components/Home';
-import Stepper from './components/Stepper';
+import Input from './components/Input';
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -17,17 +17,18 @@ const muiTheme = getMuiTheme({
   },
 });
 
-const App = () => (
+const App = ({ words, input, actions }) => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <div>
       <Home />
-      <Stepper />
+      <Input words={words} input={input} actions={actions} />
     </div>
   </MuiThemeProvider>
 );
 
 const mapStateToProps = state => ({
   words: state.words,
+  input: state.input,
 });
 
 const mapDispatchToProps = dispatch => ({

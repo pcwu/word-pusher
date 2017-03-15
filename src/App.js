@@ -1,8 +1,11 @@
 import React from 'react';
-import { indigoA700, blueA200, deepOrange500, white } from 'material-ui/styles/colors';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { indigoA700, blueA200, deepOrange500 } from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+import * as actions from './actions';
 import Home from './components/Home';
 import Stepper from './components/Stepper';
 
@@ -23,4 +26,12 @@ const App = () => (
   </MuiThemeProvider>
 );
 
-export default App;
+const mapStateToProps = state => ({
+  words: state.words,
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(actions, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

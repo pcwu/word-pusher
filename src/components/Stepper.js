@@ -1,10 +1,5 @@
-
 import React from 'react';
-import {
-  Step,
-  Stepper,
-  StepButton,
-} from 'material-ui/Stepper';
+import { Step, Stepper, StepButton } from 'material-ui/Stepper';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
@@ -26,20 +21,6 @@ class HorizontalNonLinearStepper extends React.Component {
     stepIndex: 0,
   };
 
-  handleNext = () => {
-    const {stepIndex} = this.state;
-    if (stepIndex < 2) {
-      this.setState({stepIndex: stepIndex + 1});
-    }
-  };
-
-  handlePrev = () => {
-    const {stepIndex} = this.state;
-    if (stepIndex > 0) {
-      this.setState({stepIndex: stepIndex - 1});
-    }
-  };
-
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
@@ -47,8 +28,8 @@ class HorizontalNonLinearStepper extends React.Component {
           <Paper style={paperStyle} zDepth={3} className="padding-sm">
             <TextField
               hintText="paste your text or article"
-              multiLine={true}
-              fullWidth={true}
+              multiLine
+              fullWidth
             /><br />
           </Paper>
         );
@@ -57,8 +38,8 @@ class HorizontalNonLinearStepper extends React.Component {
           <Paper style={paperStyle} zDepth={3} className="padding-sm">
             <TextField
               hintText="paste your text or article"
-              multiLine={true}
-              fullWidth={true}
+              multiLine
+              fullWidth
             /><br />
           </Paper>
         );
@@ -73,43 +54,57 @@ class HorizontalNonLinearStepper extends React.Component {
     }
   }
 
+  handleNext = () => {
+    const { stepIndex } = this.state;
+    if (stepIndex < 2) {
+      this.setState({ stepIndex: stepIndex + 1 });
+    }
+  };
+
+  handlePrev = () => {
+    const { stepIndex } = this.state;
+    if (stepIndex > 0) {
+      this.setState({ stepIndex: stepIndex - 1 });
+    }
+  };
+
   render() {
-    const {stepIndex} = this.state;
-    const contentStyle = {margin: '0 16px'};
+    const { stepIndex } = this.state;
+    const contentStyle = { margin: '0 16px' };
 
     return (
       <div className="entire-wrapper" style={bgStyle}>
-        <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
+        <div style={{ width: '100%', maxWidth: 700, margin: 'auto' }}>
           <Stepper linear={false} activeStep={stepIndex}>
             <Step>
-              <StepButton onClick={() => this.setState({stepIndex: 0})}>
+              <StepButton onClick={() => this.setState({ stepIndex: 0 })}>
                 Import text or article
               </StepButton>
             </Step>
             <Step>
-              <StepButton onClick={() => this.setState({stepIndex: 1})}>
+              <StepButton onClick={() => this.setState({ stepIndex: 1 })}>
                 Select unknown vocabulary
               </StepButton>
             </Step>
             <Step>
-              <StepButton onClick={() => this.setState({stepIndex: 2})}>
+              <StepButton onClick={() => this.setState({ stepIndex: 2 })}>
                 Start to memorize and practice
               </StepButton>
             </Step>
           </Stepper>
           <div style={contentStyle}>
             <p>{this.getStepContent(stepIndex)}</p>
-            <div style={{marginTop: 50}}>
+            <div style={{ marginTop: 50 }}>
               <FlatButton
                 label="Back"
                 disabled={stepIndex === 0}
                 onTouchTap={this.handlePrev}
-                style={{background: '#ccc', marginRight: 12}}
+                style={{ background: '#ccc', marginRight: 12 }}
               />
               <RaisedButton
                 label="Next"
                 disabled={stepIndex === 2}
-                primary={true}
+                primary
                 onTouchTap={this.handleNext}
               />
             </div>

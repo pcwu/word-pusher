@@ -4,6 +4,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
+
+import InputWord from './InputWord';
 import './composing.css';
 
 const bgStyle = {
@@ -16,10 +18,15 @@ const paperStyle = {
 };
 
 class HorizontalNonLinearStepper extends React.Component {
-
-  state = {
-    stepIndex: 0,
-  };
+  constructor(props) {
+    super(props);
+    this.actions = props.actions;
+    this.state = {
+      stepIndex: 0,
+      textarea: '',
+      input: [],
+    };
+  }
 
   getStepContent(stepIndex) {
     switch (stepIndex) {
@@ -28,6 +35,8 @@ class HorizontalNonLinearStepper extends React.Component {
           <Paper style={paperStyle} zDepth={3} className="padding-sm">
             <TextField
               hintText="paste your text or article"
+              onChange={this.handleOnChange}
+              value={this.state.textarea}
               multiLine
               fullWidth
             /><br />
@@ -36,11 +45,8 @@ class HorizontalNonLinearStepper extends React.Component {
       case 1:
         return (
           <Paper style={paperStyle} zDepth={3} className="padding-sm">
-            <TextField
-              hintText="paste your text or article"
-              multiLine
-              fullWidth
-            /><br />
+            {this.state.input.map(word => <InputWord word={word} />)}
+            <br />
           </Paper>
         );
       case 2:
@@ -56,6 +62,10 @@ class HorizontalNonLinearStepper extends React.Component {
 
   handleNext = () => {
     const { stepIndex } = this.state;
+    if (stepIndex === 0) {
+      this.setState({ input: this.state.textarea.split(/([^A-Za-zÄÖÜäöüß])/).filter(text => text) })
+      this.actions.addInput(this.state.input);
+    }
     if (stepIndex < 2) {
       this.setState({ stepIndex: stepIndex + 1 });
     }
@@ -66,6 +76,12 @@ class HorizontalNonLinearStepper extends React.Component {
     if (stepIndex > 0) {
       this.setState({ stepIndex: stepIndex - 1 });
     }
+  };
+
+  handleOnChange = (event) => {
+    this.setState({
+      textarea: event.target.value,
+    });
   };
 
   render() {

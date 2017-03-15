@@ -8,7 +8,10 @@ import App from './App';
 import reducers from './reducers';
 import './index.css';
 
-const initialState = { words: [] };
+const initialState = {
+  words: [],
+  input: [],
+};
 const store = createStore(reducers, initialState, applyMiddleware(thunk));
 
 injectTapEventPlugin();

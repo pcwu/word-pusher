@@ -17,17 +17,18 @@ const muiTheme = getMuiTheme({
   },
 });
 
-const App = () => (
+const App = ({ words, input, actions }) => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <div>
       <Home />
-      <Stepper />
+      <Stepper words={words} input={input} actions={actions} />
     </div>
   </MuiThemeProvider>
 );
 
 const mapStateToProps = state => ({
   words: state.words,
+  input: state.input,
 });
 
 const mapDispatchToProps = dispatch => ({

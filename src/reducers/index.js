@@ -23,8 +23,8 @@ const input = (state = [], action) => {
 };
 
 const rootReducer = combineReducers({
-  words,
   input,
+  words,
 });
 
 export default rootReducer;

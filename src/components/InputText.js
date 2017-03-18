@@ -3,7 +3,12 @@ import InputWord from './InputWord';
 
 const InputText = ({ input, actions }) => (
   <div>
-    {input.map(word => <InputWord word={word} actions={actions} />)}
+    {input.map((word) => {
+      if (word.text.match(/[^A-Za-zÄÖÜäöüß]+/) === null) {
+        return <InputWord word={word} actions={actions} />;
+      }
+      return word.text;
+    })}
   </div>
 );
 

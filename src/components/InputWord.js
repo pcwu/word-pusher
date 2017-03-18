@@ -1,16 +1,6 @@
 import React from 'react';
 import { compose, withHandlers, withState } from 'recompose';
 
-const enhance = compose(
-  withState('select', 'setSelect', false),
-  withHandlers({
-    onClick: props => () => {
-      props.select ? props.actions.deleteWord(props.word) : props.actions.addWord(props.word);
-      props.setSelect(!props.select);
-    },
-  }),
-);
-
 const style = (select) => {
   if (select) {
     return {
@@ -37,8 +27,19 @@ const style = (select) => {
   };
 };
 
+const enhance = compose(
+  withState('select', 'setSelect', props => props.word.select),
+  withHandlers({
+    onClick: props => () => {
+      props.select ? props.actions.deleteWord(props.word.text) : props.actions.addWord(props.word.text);
+      props.setSelect(!props.select);
+      props.actions.selectInput(props.word.text);
+    },
+  }),
+);
+
 const InputWord = ({ word, select, onClick }) => (
-  <button key={word} onClick={onClick} style={style(select)}>{word}</button>
+  <button key={word} onClick={onClick} style={style(select)}>{word.text}</button>
 );
 
 export default enhance(InputWord);

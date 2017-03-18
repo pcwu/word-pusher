@@ -1,4 +1,5 @@
 import React from 'react';
+import { forEachObjIndexed } from 'ramda';
 
 const style = {
   float: 'left',
@@ -18,7 +19,13 @@ const style = {
 
 const InputList = ({ words, actions }) => (
   <div>
-    {words.map(word => <span style={style} onClick={() => actions.deleteWord(word)}>{word}</span>)}
+    {words.map(word => (
+      <div>
+        <span style={style} onClick={() => actions.deleteWord(word.query)}>{word.query}</span>
+        <span onClick={() => { const sound = new Audio(); sound.src = word.enAudio; sound.play(); }}>{word.en}</span>
+        <span onClick={() => { const sound = new Audio(); sound.src = word.deAudio; sound.play(); }}>{word.de}</span>
+      </div>
+    ))}
   </div>
 );
 

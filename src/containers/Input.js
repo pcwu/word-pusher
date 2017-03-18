@@ -1,16 +1,19 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { compose, withHandlers, withState } from 'recompose';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
-import InputStepper from './InputStepper';
-import InputPaper from './InputPaper';
-import './composing.css';
+import * as Actions from './../actions';
+import InputStepper from '../components/InputStepper';
+import InputPaper from '../components/InputPaper';
+import '../components/composing.css';
 
 const bgStyle = {
   background: '#ECEFF1',
 };
-
 
 const contentStyle = { margin: '0 16px' };
 
@@ -50,10 +53,20 @@ const Input = ({ input, words, stepIndex, setStepIndex, actions, handleNext, han
             primary
             onTouchTap={handleNext}
           />
+          <Link to="/learn"><RaisedButton label="Start Now" secondary /></Link>
         </div>
       </div>
     </div>
   </div>
 );
 
-export default enhance(Input);
+const mapStateToProps = state => ({
+  words: state.words,
+  input: state.input,
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(Actions, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(enhance(Input));

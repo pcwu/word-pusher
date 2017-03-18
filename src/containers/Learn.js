@@ -1,7 +1,11 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Tabs, Tab } from 'material-ui/Tabs';
-import Lesen from './Lesen';
-import Karten from './Karten';
+
+import * as Actions from './../actions';
+import Lesen from '../components/Lesen';
+import Karten from '../components/Karten';
 
 const styles = {
   headline: {
@@ -18,20 +22,20 @@ const bgStyle = {
   alignItems: 'flex-start',
 };
 
-const LearnTabs = () => (
+const LearnTabs = ({ actions, words }) => (
   <div className="entire-wrapper" style={bgStyle}>
     <div className="content-wrapper padding-sm">
       <Tabs>
         <Tab label="Lesen" >
           <div>
             <h2 style={styles.headline}>Wortliste</h2>
-            <Lesen />
+            <Lesen words={words} />
           </div>
         </Tab>
         <Tab label="Karten" >
           <div>
             <h2 style={styles.headline}>Wortkarte</h2>
-            <Karten />
+            <Karten actions={actions} words={words} />
           </div>
         </Tab>
         <Tab label="Artikel" >
@@ -55,4 +59,12 @@ const LearnTabs = () => (
   </div>
 );
 
-export default LearnTabs;
+const mapStateToProps = state => ({
+  words: state.words,
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(Actions, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LearnTabs);

@@ -15,7 +15,7 @@ const InputPaper = ({ input, words, stepIndex, actions}) => (
     {(() => {
       switch (stepIndex) {
         case 0:
-          return <InputForm actions={actions} />;
+          return <InputForm input={input} actions={actions} />;
         case 1:
           return <InputText input={input} actions={actions} />;
         case 2:

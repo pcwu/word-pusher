@@ -13,7 +13,7 @@ import reducers from './reducers';
 import './index.css';
 
 const initialState = {
-  words: [],
+  words: [{ de: 'der Apfel', en: 'Apple', type: 'noun' }, { de: 'essen', en: 'eat', type: 'verb' }],
   input: [],
 };
 const store = createStore(reducers, initialState, applyMiddleware(thunk));

@@ -1,5 +1,4 @@
 import React from 'react';
-import { forEachObjIndexed } from 'ramda';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 const style = {
@@ -39,7 +38,7 @@ const InputList = ({ words, actions }) => (
           <button style={deleteStyle} onClick={() => actions.deleteWord(word.query)}><i className="material-icons">delete</i></button>
         </TableRowColumn>
         <TableRowColumn>
-          <span style={style} onClick={() => actions.deleteWord(word.query)}>{word.query}</span>
+          <span style={style}>{word.query}</span>
         </TableRowColumn>
         <TableRowColumn style={{ fontSize: '18px' }}>
           <span>{word.de}</span>

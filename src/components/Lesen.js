@@ -2,15 +2,12 @@ import React from 'react';
 import { withHandlers } from 'recompose';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 import IconButton from 'material-ui/IconButton';
+import { playAudio } from '../utils';
 import './Lesen.css';
 
 
 const enhance = withHandlers({
-  playAudio: () => (url) => {
-    const audio = new Audio();
-    audio.src = url;
-    audio.play();
-  },
+  playAudio: () => (url) => { playAudio(url); },
 });
 
 const WordTable = ({ words, playAudio }) => (
@@ -25,11 +22,15 @@ const WordTable = ({ words, playAudio }) => (
       {words.map((word, index) => (
         <TableRow>
           <TableRowColumn style={{ fontSize: '18px' }}>
-            <IconButton className="wordSpeak" onClick={() => playAudio(word.deAudio)}><i className="material-icons">volume_up</i></IconButton>
+            <IconButton className="wordSpeak" disabled={!word.deAudio} onClick={() => playAudio(word.deAudio)}>
+              <i className="material-icons">volume_up</i>
+            </IconButton>
             <span className="wordLesen">{word.de}</span>
           </TableRowColumn>
           <TableRowColumn style={{ fontSize: '18px' }}>
-            <IconButton className="wordSpeak" onClick={() => playAudio(word.enAudio)}><i className="material-icons">volume_up</i></IconButton>
+            <IconButton className="wordSpeak" disabled={!word.enAudio} onClick={() => playAudio(word.enAudio)}>
+              <i className="material-icons">volume_up</i>
+            </IconButton>
             <span className="wordLesen">{word.en}</span>
           </TableRowColumn>
         </TableRow>

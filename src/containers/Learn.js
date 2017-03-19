@@ -36,13 +36,13 @@ const LearnTabs = ({ actions, words }) => (
         <Tab label="Karten" >
           <div>
             <h2 style={styles.headline}>Wortkarte</h2>
-            <Karten actions={actions} words={words} />
+            <Karten words={words} />
           </div>
         </Tab>
         <Tab label="Artikel" >
           <div>
             <h2 style={styles.headline}>Artikel</h2>
-            <Artikel />
+            <Artikel words={words} />
           </div>
         </Tab>
         <Tab label="Prüfung" >

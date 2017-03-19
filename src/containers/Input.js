@@ -47,14 +47,23 @@ const Input = ({ input, words, stepIndex, setStepIndex, actions, handleNext, han
             onTouchTap={handlePrev}
             style={{ background: '#ccc', marginRight: 12 }}
           />
-          <RaisedButton
-            label="Next"
-            disabled={stepIndex === 2}
-            primary
-            onTouchTap={handleNext}
-            style={{ background: '#ccc', marginRight: 12 }}
-          />
-          <Link to="/learn"><RaisedButton label="Start Now" secondary /></Link>
+          {stepIndex !== 2 ?
+            <RaisedButton
+              label="Next"
+              disabled={stepIndex === 2}
+              primary
+              onTouchTap={handleNext}
+              style={{ background: '#ccc', marginRight: 12 }}
+            /> : null
+          }
+          { stepIndex === 2 && words.length !== 0 ?
+            <Link to="/learn">
+              <RaisedButton
+                label="Start Now"
+                secondary
+              />
+            </Link> : null
+          }
         </div>
       </div>
     </div>

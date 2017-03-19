@@ -6,6 +6,7 @@ import { Tabs, Tab } from 'material-ui/Tabs';
 import * as Actions from './../actions';
 import Lesen from '../components/Lesen';
 import Karten from '../components/Karten';
+import Artikel from '../components/Artikel';
 
 const styles = {
   headline: {
@@ -40,10 +41,8 @@ const LearnTabs = ({ actions, words }) => (
         </Tab>
         <Tab label="Artikel" >
           <div>
-            <h2 style={styles.headline}>Tab Three</h2>
-            <p>
-              This is a third example tab.
-            </p>
+            <h2 style={styles.headline}>Artikel</h2>
+            <Artikel />
           </div>
         </Tab>
         <Tab label="Prüfung" >

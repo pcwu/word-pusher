@@ -52,6 +52,7 @@ const Input = ({ input, words, stepIndex, setStepIndex, actions, handleNext, han
             disabled={stepIndex === 2}
             primary
             onTouchTap={handleNext}
+            style={{ background: '#ccc', marginRight: 12 }}
           />
           <Link to="/learn"><RaisedButton label="Start Now" secondary /></Link>
         </div>

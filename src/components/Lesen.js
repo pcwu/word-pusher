@@ -1,6 +1,9 @@
 import React from 'react';
 import { withHandlers } from 'recompose';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
+import IconButton from 'material-ui/IconButton';
+import './Lesen.css';
+
 
 const enhance = withHandlers({
   playAudio: () => (url) => {
@@ -14,7 +17,6 @@ const WordTable = ({ words, playAudio }) => (
   <Table>
     <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
       <TableRow>
-        <TableHeaderColumn>Nr.</TableHeaderColumn>
         <TableHeaderColumn>Deutsch</TableHeaderColumn>
         <TableHeaderColumn>Englisch</TableHeaderColumn>
       </TableRow>
@@ -22,9 +24,14 @@ const WordTable = ({ words, playAudio }) => (
     <TableBody displayRowCheckbox={false}>
       {words.map((word, index) => (
         <TableRow>
-          <TableRowColumn>{index + 1}</TableRowColumn>
-          <TableRowColumn><span onClick={() => playAudio(word.deAudio)}>{word.de}</span></TableRowColumn>
-          <TableRowColumn><span onClick={() => playAudio(word.enAudio)}>{word.en}</span></TableRowColumn>
+          <TableRowColumn style={{ fontSize: '18px' }}>
+            <IconButton className="wordSpeak" onClick={() => playAudio(word.deAudio)}><i className="material-icons">volume_up</i></IconButton>
+            <span className="wordLesen">{word.de}</span>
+          </TableRowColumn>
+          <TableRowColumn style={{ fontSize: '18px' }}>
+            <IconButton className="wordSpeak" onClick={() => playAudio(word.enAudio)}><i className="material-icons">volume_up</i></IconButton>
+            <span className="wordLesen">{word.en}</span>
+          </TableRowColumn>
         </TableRow>
       ))}
     </TableBody>

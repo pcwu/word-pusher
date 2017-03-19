@@ -1,3 +1,7 @@
+.Karten-container{
+	position: relative;
+}
+
 .flip-container {
 	perspective: 1000px;
 }
@@ -38,12 +42,17 @@
 	top: 0;
 	left: 0;
   margin-bottom: -8px;
-  background-color: #ffffff;
+	background-color: #ffffff;
+	box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+}
+
+.flip-container{
+	margin: 0 auto;
 }
 
 .flip-container, .front, .back {
-	width: 700px;
-	height: 100px;
+	width: 500px;
+	height: 200px;
   box-sizing: border-box;
 }
 
@@ -62,13 +71,43 @@
   transform: rotateY(180deg);
 }
 
-.back p {
+
+.front p, .back p {
 	position: absolute;
-	top: 0;
 	left: 0;
 	right: 0;
+	margin: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+  font-size: 30px;
 	text-align: center;
-	padding: 0 20px;
-  font-family: arial;
-  line-height: 2em;
+}
+
+.Prev, .Next{
+	position: absolute !important;
+	color: #304FFE !important;
+	padding: 0px !important;
+	top: 50% !important;
+	transform: translateY(-50%) !important;
+}
+
+.Prev i, .Next i{
+	font-size: 48px !important;
+}
+
+.Prev{
+	left: 20px !important;
+}
+
+.Next{
+	right: 20px !important;
+}
+
+.artikel-choice{
+	position: absolute;
+	left: 0;
+	right: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 30px;
 }

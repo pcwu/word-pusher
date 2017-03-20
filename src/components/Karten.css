@@ -111,3 +111,26 @@
 	transform: translateX(-50%);
 	margin-top: 30px;
 }
+
+.listen{
+	position: absolute;
+	z-index: 2;
+	left: 20px;
+	bottom: 20px;
+}
+
+.umlaut-choice{
+	position: absolute;
+	z-index: 2;
+	right: 20px;
+	bottom: 20px;
+}
+
+.umlaut-container{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin: -8px 0px;
+	background-color: #243D4C;
+	position: relative;
+}

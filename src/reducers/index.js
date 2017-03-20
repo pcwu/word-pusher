@@ -17,7 +17,7 @@ const input = (state = [], action) => {
       return action.text.map(word => ({ text: word, select: false }));
     case 'selectInput':
       return state.map((word) => {
-        if (word.text === action.word) { return { text: word.text, select: !word.select };}
+        if (word.text === action.word) return { text: word.text, select: !word.select };
         return word;
       });
     default:

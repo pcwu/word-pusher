@@ -3,7 +3,7 @@ import { withHandlers, withState, compose } from 'recompose';
 import { Card } from 'material-ui/Card';
 import IconButton from 'material-ui/IconButton';
 import { playAudio } from '../utils';
-import './Karten.css';
+import '../css/Karten.css';
 
 const enhance = compose(
   withState('index', 'setIndex', 0),

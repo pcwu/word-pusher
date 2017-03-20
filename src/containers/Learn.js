@@ -7,7 +7,7 @@ import * as Actions from './../actions';
 import Lesen from '../components/Lesen';
 import Karten from '../components/Karten';
 import Artikel from '../components/Artikel';
-import Prüfung from '../components/Pruefung';
+import Pruefung from '../components/Pruefung';
 
 const styles = {
   headline: {
@@ -49,7 +49,7 @@ const LearnTabs = ({ actions, words }) => (
         <Tab label="Prüfung" >
           <div>
             <h2 style={styles.headline}>Prüfung</h2>
-            <Prüfung words={words} />
+            <Pruefung words={words} />
           </div>
         </Tab>
       </Tabs>

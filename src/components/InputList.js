@@ -25,7 +25,9 @@ const InputList = ({ words, actions }) => (
   <Table>
     <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
       <TableRow>
-        <TableHeaderColumn style={{ width: '25px' }}><i className="material-icons">delete</i></TableHeaderColumn>
+        <TableHeaderColumn style={{ width: '25px' }}>
+          <i className="material-icons">delete</i>
+        </TableHeaderColumn>
         <TableHeaderColumn>Selected word</TableHeaderColumn>
         <TableHeaderColumn>Deutsch</TableHeaderColumn>
         <TableHeaderColumn>Englisch</TableHeaderColumn>
@@ -35,7 +37,9 @@ const InputList = ({ words, actions }) => (
     {words.map(word => (
       <TableRow>
         <TableRowColumn style={{ width: '25px' }}>
-          <button style={deleteStyle} onClick={() => actions.deleteWord(word.query)}><i className="material-icons">delete</i></button>
+          <button style={deleteStyle} onClick={() => actions.deleteWord(word.query)}>
+            <i className="material-icons">delete</i>
+          </button>
         </TableRowColumn>
         <TableRowColumn>
           <span style={style}>{word.query}</span>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
-import './composing.css';
+import '../css/composing.css';
 
 const bgStyle = {
   background: "url('./images/1.jpg')",

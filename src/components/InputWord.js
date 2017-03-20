@@ -28,12 +28,12 @@ const style = (select) => {
 };
 
 const enhance = compose(
-  withState('select', 'setSelect', props => props.word.select),
+  withState('select', 'setSelect', ({ word }) => word.select),
   withHandlers({
-    onClick: props => () => {
-      props.select ? props.actions.deleteWord(props.word.text) : props.actions.addWord(props.word.text);
-      props.setSelect(!props.select);
-      props.actions.selectInput(props.word.text);
+    onClick: ({ actions, word, select, setSelect }) => () => {
+      select ? actions.deleteWord(word.text) : actions.addWord(word.text);
+      setSelect(!select);
+      actions.selectInput(word.text);
     },
   }),
 );

@@ -10,7 +10,7 @@ const paperStyle = {
   width: '100%',
 };
 
-const InputPaper = ({ input, words, stepIndex, actions}) => (
+const InputPaper = ({ input, words, stepIndex, actions }) => (
   <Paper style={paperStyle} zDepth={3} className="padding-sm">
     {(() => {
       switch (stepIndex) {

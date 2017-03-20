@@ -5,7 +5,7 @@ import Snackbar from 'material-ui/Snackbar';
 import IconButton from 'material-ui/IconButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import { playAudio } from '../utils';
-import './Karten.css';
+import '../css/Karten.css';
 
 const style = {
   margin: 12,

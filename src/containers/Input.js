@@ -5,11 +5,10 @@ import { Link } from 'react-router';
 import { compose, withHandlers, withState } from 'recompose';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-
 import * as Actions from './../actions';
 import InputStepper from '../components/InputStepper';
 import InputPaper from '../components/InputPaper';
-import '../components/composing.css';
+import '../css/composing.css';
 
 const bgStyle = {
   background: '#ECEFF1',

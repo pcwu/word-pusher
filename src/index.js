@@ -10,7 +10,7 @@ import Home from './components/Home';
 import Input from './containers/Input';
 import Learn from './containers/Learn';
 import reducers from './reducers';
-import './index.css';
+import './css/index.css';
 
 const initialState = {
   words: [],

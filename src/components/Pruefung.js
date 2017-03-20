@@ -7,7 +7,7 @@ import Snackbar from 'material-ui/Snackbar';
 import TextField from 'material-ui/TextField';
 import Umlaut from '../components/Umlaut';
 import { playAudio } from '../utils';
-import './Karten.css';
+import '../css/Karten.css';
 
 const enhance = compose(
   withProps(({ words }) => ({ words: words.filter(word => word.deAudio !== '') })),

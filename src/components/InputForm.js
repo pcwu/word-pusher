@@ -3,11 +3,11 @@ import { compose, withHandlers, withState } from 'recompose';
 import TextField from 'material-ui/TextField';
 
 const enhance = compose(
-  withState('value', 'updateValue', props => props.input.map(word => word.text).join('')),
+  withState('value', 'setValue', props => props.input.map(word => word.text).join('')),
   withHandlers({
     onChange: props => (event) => {
       const value = event.target.value;
-      props.updateValue(value);
+      props.setValue(value);
       props.actions.addInput(value.split(/([^A-Za-zÄÖÜäöüß])/).filter(text => text));
     },
   }),

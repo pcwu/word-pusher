@@ -49,7 +49,7 @@ const LearnTabs = ({ actions, words }) => (
         <Tab label="Prüfung" >
           <div>
             <h2 style={styles.headline}>Prüfung</h2>
-            <Prüfung />
+            <Prüfung words={words} />
           </div>
         </Tab>
       </Tabs>

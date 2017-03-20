@@ -2,8 +2,8 @@ import React from 'react';
 import { withHandlers } from 'recompose';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 import IconButton from 'material-ui/IconButton';
-import { playAudio } from '../utils';
-import '../css/Lesen.css';
+import { playAudio } from '../../utils';
+import '../../css/Lesen.css';
 
 
 const enhance = withHandlers({

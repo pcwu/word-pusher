@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { Tabs, Tab } from 'material-ui/Tabs';
 
 import * as Actions from './../actions';
-import Lesen from '../components/Lesen';
-import Karten from '../components/Karten';
-import Artikel from '../components/Artikel';
-import Pruefung from '../components/Pruefung';
+import WordList from '../components/learn/WordList';
+import WordCard from '../components/learn/WordCard';
+import Article from '../components/learn/Article';
+import Spelling from '../components/learn/Spelling';
 
 const styles = {
   headline: {
@@ -28,29 +28,21 @@ const LearnTabs = ({ actions, words }) => (
   <div className="entire-wrapper" style={bgStyle}>
     <div className="content-wrapper padding-sm">
       <Tabs>
-        <Tab label="Lesen" >
-          <div>
-            <h2 style={styles.headline}>Wortliste</h2>
-            <Lesen words={words} />
-          </div>
+        <Tab label="Word List" >
+          <h2 style={styles.headline}>Word List</h2>
+          <WordList words={words} />
         </Tab>
-        <Tab label="Karten" >
-          <div>
-            <h2 style={styles.headline}>Wortkarte</h2>
-            <Karten words={words} />
-          </div>
+        <Tab label="Word Card" >
+          <h2 style={styles.headline}>Word Card</h2>
+          <WordCard words={words} />
         </Tab>
-        <Tab label="Artikel" >
-          <div>
-            <h2 style={styles.headline}>Artikel</h2>
-            <Artikel words={words} />
-          </div>
+        <Tab label="Article Test" >
+          <h2 style={styles.headline}>Article Test</h2>
+          <Article words={words.filter(word => word.type === 'noun')} />
         </Tab>
-        <Tab label="Prüfung" >
-          <div>
-            <h2 style={styles.headline}>Prüfung</h2>
-            <Pruefung words={words} />
-          </div>
+        <Tab label="Spelling Test" >
+          <h2 style={styles.headline}>Spelling Test</h2>
+          <Spelling words={words.filter(word => word.deAudio !== '')} />
         </Tab>
       </Tabs>
     </div>

@@ -6,15 +6,9 @@ import { compose, withHandlers, withState } from 'recompose';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import * as Actions from './../actions';
-import InputStepper from '../components/InputStepper';
-import InputPaper from '../components/InputPaper';
+import InputStepper from '../components/input/InputStepper';
+import InputPaper from '../components/input/InputPaper';
 import '../css/composing.css';
-
-const bgStyle = {
-  background: '#ECEFF1',
-};
-
-const contentStyle = { margin: '0 16px' };
 
 const enhance = compose(
   withState('stepIndex', 'setStepIndex', 0),
@@ -29,10 +23,10 @@ const enhance = compose(
 );
 
 const Input = ({ input, words, stepIndex, setStepIndex, actions, handleNext, handlePrev }) => (
-  <div className="entire-wrapper" style={bgStyle}>
+  <div className="entire-wrapper" style={{ background: '#ECEFF1' }}>
     <div style={{ width: '100%', maxWidth: 700, margin: 'auto' }}>
       <InputStepper stepIndex={stepIndex} setStepIndex={setStepIndex} />
-      <div style={contentStyle}>
+      <div style={{ margin: '0 16px' }}>
         <InputPaper
           input={input}
           words={words}

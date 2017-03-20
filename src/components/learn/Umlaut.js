@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
-import '../css/Karten.css';
+import '../../css/Umlaut.css';
 
 const enhance = compose(
   withState('open', 'setOpen', false),

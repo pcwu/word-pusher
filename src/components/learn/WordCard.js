@@ -2,8 +2,8 @@ import React from 'react';
 import { withHandlers, withState, compose } from 'recompose';
 import { Card } from 'material-ui/Card';
 import IconButton from 'material-ui/IconButton';
-import { playAudio } from '../utils';
-import '../css/Karten.css';
+import { playAudio } from '../../utils';
+import '../../css/Karten.css';
 
 const enhance = compose(
   withState('index', 'setIndex', 0),
@@ -19,7 +19,7 @@ const enhance = compose(
   }),
 );
 
-const Karten = ({ words, index, toNext, toPrev }) => (
+const WordCard = ({ words, index, toNext, toPrev }) => (
   <div className="Karten-container">
     <div className="flip-container" ontouchstart="this.classList.toggle('hover');">
       <div className="flipper">
@@ -46,4 +46,4 @@ const Karten = ({ words, index, toNext, toPrev }) => (
   </div>
 );
 
-export default enhance(Karten);
+export default enhance(WordCard);

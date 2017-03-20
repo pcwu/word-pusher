@@ -125,12 +125,3 @@
 	right: 20px;
 	bottom: 20px;
 }
-
-.umlaut-container{
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	margin: -8px 0px;
-	background-color: #243D4C;
-	position: relative;
-}

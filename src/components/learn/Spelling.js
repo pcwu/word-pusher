@@ -1,16 +1,15 @@
 import React from 'react';
-import { withHandlers, withProps, withState, compose } from 'recompose';
+import { withHandlers, withState, compose } from 'recompose';
 import { Card } from 'material-ui/Card';
 import IconButton from 'material-ui/IconButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import Snackbar from 'material-ui/Snackbar';
 import TextField from 'material-ui/TextField';
-import Umlaut from '../components/Umlaut';
-import { playAudio } from '../utils';
-import '../css/Karten.css';
+import Umlaut from './Umlaut';
+import { playAudio } from '../../utils';
+import '../../css/Karten.css';
 
 const enhance = compose(
-  withProps(({ words }) => ({ words: words.filter(word => word.deAudio !== '') })),
   withState('index', 'setIndex', 0),
   withState('value', 'setValue', ''),
   withState('correct', 'setCorrect', null),
@@ -43,7 +42,7 @@ const enhance = compose(
   }),
 );
 
-const Pruefung = ({ words, correct, index, value, onChange, onSubmit, setCorrect, setIndex, toPrev, toNext, addUmlaut }) => (
+const Spelling = ({ words, correct, index, value, onChange, onSubmit, setCorrect, setIndex, toPrev, toNext, addUmlaut }) => (
   <div className="Karten-container">
     <div className="flip-container" ontouchstart="this.classList.toggle('hover');">
       <Card style={{ background: 'transparent' }}>
@@ -71,7 +70,6 @@ const Pruefung = ({ words, correct, index, value, onChange, onSubmit, setCorrect
         </div>
       </Card>
     </div>
-
     <IconButton className="Prev" disabled={index <= 0} onClick={() => toPrev()}>
       <i className="material-icons">chevron_left</i>
     </IconButton>
@@ -88,9 +86,9 @@ const Pruefung = ({ words, correct, index, value, onChange, onSubmit, setCorrect
       open={correct === true}
       message="Correct Answer! Nice Job!"
       autoHideDuration={2000}
-      onRequestClose={() => { if (index < words.length - 1) toNext(); }}
+      onRequestClose={() => { if (index < words.length - 1) toNext(); setCorrect(null); }}
     />
   </div>
 );
 
-export default enhance(Pruefung);
+export default enhance(Spelling);

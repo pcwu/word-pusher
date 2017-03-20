@@ -1,17 +1,11 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
-
 import InputForm from './InputForm';
 import InputText from './InputText';
 import InputList from './InputList';
 
-const paperStyle = {
-  minHeight: 500,
-  width: '100%',
-};
-
 const InputPaper = ({ input, words, stepIndex, actions }) => (
-  <Paper style={paperStyle} zDepth={3} className="padding-sm">
+  <Paper style={{ minHeight: 500, width: '100%' }} zDepth={3} className="padding-sm">
     {(() => {
       switch (stepIndex) {
         case 0:

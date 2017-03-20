@@ -10,6 +10,8 @@ Can the experience of learning new words from article be improved?
 
 It can be really easy! Just import an English or German article, collect unknown words, and then start to learn!
 
+Start Now: [https://pcwu.github.io/word-pusher/](https://pcwu.github.io/word-pusher/)
+
 ## Screenshots
 
 ![](/assets/images/README-f4bdf.png)

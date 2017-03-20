@@ -16,7 +16,7 @@ const enhance = compose(
 const InputForm = ({ value, onChange }) => (
   <div>
     <TextField
-      hintText="paste your text or article"
+      hintText="paste German or English article here"
       onChange={onChange}
       value={value}
       multiLine

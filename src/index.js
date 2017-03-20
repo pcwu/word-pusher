@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import App from './App';
 import Home from './components/Home';
@@ -22,7 +22,7 @@ injectTapEventPlugin();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="/input" component={Input} />

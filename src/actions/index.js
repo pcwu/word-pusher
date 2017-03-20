@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 
 export const addWord = word => (dispatch) => {
-  fetch(`http://word-pusher-server.herokuapp.com/api/dict/${word}`)
+  fetch(`https://word-pusher-server.herokuapp.com/api/dict/${word}`)
   .then(response => response.json())
   .then(data => dispatch({ type: 'addWord', result: data.result }))
   .catch();

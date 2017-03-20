@@ -1,0 +1,127 @@
+.Karten-container{
+	position: relative;
+}
+
+.flip-container {
+	perspective: 1000px;
+}
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+  -webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+/* flip speed goes here */
+.flipper {
+	-webkit-transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+
+	-moz-transition: 0.6s;
+	-moz-transform-style: preserve-3d;
+
+  -o-transition: 0.6s;
+	-o-transform-style: preserve-3d;
+
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+
+/* hide back of pane during swap */
+.front, .back {
+  -webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+  margin-bottom: -8px;
+	background-color: #ffffff;
+	box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+}
+
+.flip-container{
+	margin: 0 auto;
+}
+
+.flip-container, .front, .back {
+	width: 500px;
+	height: 200px;
+  box-sizing: border-box;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+
+.front p, .back p {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+  font-size: 30px;
+	text-align: center;
+}
+
+.Prev, .Next{
+	position: absolute !important;
+	color: #304FFE !important;
+	padding: 0px !important;
+	top: 50% !important;
+	transform: translateY(-50%) !important;
+}
+
+.Prev i, .Next i{
+	font-size: 48px !important;
+}
+
+.Prev{
+	left: 20px !important;
+}
+
+.Next{
+	right: 20px !important;
+}
+
+.artikel-choice{
+	position: absolute;
+	left: 0;
+	right: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 30px;
+}
+
+.listen{
+	position: absolute;
+	z-index: 2;
+	left: 20px;
+	bottom: 20px;
+}
+
+.umlaut-choice{
+	position: absolute;
+	z-index: 2;
+	right: 20px;
+	bottom: 20px;
+}

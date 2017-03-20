@@ -1,13 +1,7 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import { indigoA700, blueA200, deepOrange500 } from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
-import * as actions from './actions';
-import Home from './components/Home';
-import Stepper from './components/Stepper';
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -17,21 +11,12 @@ const muiTheme = getMuiTheme({
   },
 });
 
-const App = () => (
+const App = ({ children }) => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <div>
-      <Home />
-      <Stepper />
+      {children}
     </div>
   </MuiThemeProvider>
 );
 
-const mapStateToProps = state => ({
-  words: state.words,
-});
-
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(actions, dispatch),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

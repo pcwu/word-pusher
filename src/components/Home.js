@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
-import './composing.css';
+import '../css/composing.css';
 
 const bgStyle = {
-  background: '#304FFE',
+  background: "url('./images/1.jpg')",
+  backgroundSize: 'cover',
 };
 
 const Home = () => (
@@ -11,7 +13,7 @@ const Home = () => (
     <div className="content-wrapper padding-sm">
       <h1>Suffer from memorizing vocabulary?</h1>
       <h3>Let us help you.</h3>
-      <RaisedButton label="Explore Now" secondary />
+      <Link to="/input"><RaisedButton label="Explore Now" secondary /></Link>
     </div>
   </div>
 );

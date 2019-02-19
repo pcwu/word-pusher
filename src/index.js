@@ -22,7 +22,7 @@ const store = createStore(reducers, initialState, applyMiddleware(thunk));
 ReactDOM.render(
   <Provider store={store}>
     <App>
-      <Router>
+      <Router basename="/word-pusher">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/input" component={Input} />

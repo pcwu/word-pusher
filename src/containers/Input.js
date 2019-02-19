@@ -1,10 +1,11 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { compose, withHandlers, withState } from 'recompose';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
+
 import * as Actions from './../actions';
 import InputStepper from '../components/input/InputStepper';
 import InputPaper from '../components/input/InputPaper';
@@ -37,7 +38,7 @@ const Input = ({ input, words, stepIndex, setStepIndex, actions, handleNext, han
           <FlatButton
             label="Back"
             disabled={stepIndex === 0}
-            onTouchTap={handlePrev}
+            onClick={handlePrev}
             style={{ background: '#ccc', marginRight: 12 }}
           />
           {stepIndex !== 2 ?
@@ -45,7 +46,7 @@ const Input = ({ input, words, stepIndex, setStepIndex, actions, handleNext, han
               label="Next"
               disabled={stepIndex === 2}
               primary
-              onTouchTap={handleNext}
+              onClick={handleNext}
               style={{ background: '#ccc', marginRight: 12 }}
             /> : null
           }

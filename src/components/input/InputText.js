@@ -1,4 +1,5 @@
 import React from 'react';
+
 import InputWord from './InputWord';
 
 const InputText = ({ input, actions }) => (

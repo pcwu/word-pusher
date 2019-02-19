@@ -1,16 +1,11 @@
 import React from 'react';
-import { withHandlers } from 'recompose';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 import IconButton from 'material-ui/IconButton';
+
 import { playAudio } from '../../utils';
 import '../../css/Lesen.css';
 
-
-const enhance = withHandlers({
-  playAudio: () => (url) => { playAudio(url); },
-});
-
-const WordTable = ({ words, playAudio }) => (
+const WordTable = ({ words }) => (
   <Table>
     <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
       <TableRow>
@@ -39,4 +34,4 @@ const WordTable = ({ words, playAudio }) => (
   </Table>
 );
 
-export default enhance(WordTable);
+export default WordTable;

@@ -1,5 +1,4 @@
-import React from 'react';
-import { compose, withHandlers, withState } from 'recompose';
+import React, { useState } from 'react';
 
 const style = (select) => {
   if (select) {
@@ -27,19 +26,32 @@ const style = (select) => {
   };
 };
 
-const enhance = compose(
-  withState('select', 'setSelect', ({ word }) => word.select),
-  withHandlers({
-    onClick: ({ actions, word, select, setSelect }) => () => {
-      select ? actions.deleteWord(word.text) : actions.addWord(word.text);
-      setSelect(!select);
-      actions.selectInput(word.text);
-    },
-  }),
-);
+// const enhance = compose(
+//   withState('select', 'setSelect', ({ word }) => word.select),
+//   withHandlers({
+//     onClick: ({ actions, word, select, setSelect }) => () => {
+//       select ? actions.deleteWord(word.text) : actions.addWord(word.text);
+//       setSelect(!select);
+//       actions.selectInput(word.text);
+//     },
+//   }),
+// );
 
-const InputWord = ({ word, select, onClick }) => (
-  <button key={word} onClick={onClick} style={style(select)}>{word.text}</button>
-);
+const InputWord = ({ word, actions }) => {
+  const [isSelected, setIsSelected] = useState(false);
+  const handleOnClick = () => {
+    isSelected
+      ? actions.deleteWord(word.text)
+      : actions.addWord(word.text);
+    setIsSelected(!isSelected);
+    actions.selectInput(word.text);
+  };
 
-export default enhance(InputWord);
+  return (
+    <button key={word} onClick={handleOnClick} style={style(isSelected)}>
+      {word.text}
+    </button>
+  );
+};
+
+export default InputWord;

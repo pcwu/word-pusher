@@ -1,13 +1,13 @@
 {
   "main.css": "/word-pusher/static/css/main.8e0ace66.chunk.css",
-  "main.js": "/word-pusher/static/js/main.0591cb08.chunk.js",
-  "main.js.map": "/word-pusher/static/js/main.0591cb08.chunk.js.map",
+  "main.js": "/word-pusher/static/js/main.bae3077b.chunk.js",
+  "main.js.map": "/word-pusher/static/js/main.bae3077b.chunk.js.map",
   "runtime~main.js": "/word-pusher/static/js/runtime~main.39fcd79e.js",
   "runtime~main.js.map": "/word-pusher/static/js/runtime~main.39fcd79e.js.map",
   "static/js/2.196412e2.chunk.js": "/word-pusher/static/js/2.196412e2.chunk.js",
   "static/js/2.196412e2.chunk.js.map": "/word-pusher/static/js/2.196412e2.chunk.js.map",
   "index.html": "/word-pusher/index.html",
-  "precache-manifest.e0d92c824aa5a5e6dd13bfb8894182e7.js": "/word-pusher/precache-manifest.e0d92c824aa5a5e6dd13bfb8894182e7.js",
+  "precache-manifest.f47322d79ff527d8a4ed325952d6b192.js": "/word-pusher/precache-manifest.f47322d79ff527d8a4ed325952d6b192.js",
   "service-worker.js": "/word-pusher/service-worker.js",
   "static/css/main.8e0ace66.chunk.css.map": "/word-pusher/static/css/main.8e0ace66.chunk.css.map"
 }
